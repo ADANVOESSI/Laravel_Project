@@ -20,8 +20,9 @@ return new class extends Migration
             $table->integer('child');
             $table->string('room');
             $table->integer('nbr_child');
-            $table->integer('userID&');
+            $table->foreignId('userID')->constrained()->cascadeOnDelete();
             $table->timestamps();
+            $table->foreign('userID')->references('id')->on('users')->onDelete('SET NULL');
         });
     }
 

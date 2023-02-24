@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ImageUploadController;
+use App\Http\Controllers\PagesController;
+use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ChirpController;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,15 +22,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('upload-image', [ ImageUploadController::class, 'index' ]);
-Route::post('upload-image', [ ImageUploadController::class, 'store' ])->name('image.store');
+
+Route::get('/contact', [PagesController::class, 'contact']);
+Route::get('/site', [PagesController::class, 'sites']);
+Route::get('/about', [PagesController::class, 'about']);
+Route::get('/home', [PagesController::class, 'index']);
+Route::resource('reservations', ReservationController::class)
+    ->only(['index', 'store'])
+    ->middleware(['auth', 'verified']);
 
 Route::resource('chirps', ChirpController::class)
-    ->only(['index', 'store', 'edit', 'update', 'destroy'])
+    ->only(['index', 'store'])
     ->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
@@ -37,4 +46,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

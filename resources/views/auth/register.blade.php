@@ -1,10 +1,10 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('register') }}">
         @csrf
 
         <!-- Name -->
         <div>
-            <x-input-label for="name" :value="__('Nom')" />
+            <x-input-label for="name" :value="__('Name')" />
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
@@ -24,6 +24,7 @@
                             type="password"
                             name="password"
                             required autocomplete="new-password" />
+
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 

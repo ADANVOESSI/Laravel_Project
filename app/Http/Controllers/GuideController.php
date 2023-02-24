@@ -2,17 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\Guide;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 
 class GuideController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
-        //
+        $guides = DB::select('select * from guide');
+
+        return view('sites.reservation', ['guides' => $guides]);
     }
 
     /**
@@ -20,7 +25,11 @@ class GuideController extends Controller
      */
     public function create()
     {
-        //
+        // $this->guideModel = new GuideModel();
+        // $resultatG = $this->guideModel->showGuide();
+        // $count = $this->guideModel->countGuid();
+        // $nbrGuide = $count["countG"];
+        // require_once('../App/Views/Admin/guide.php');
     }
 
     /**
