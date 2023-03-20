@@ -30,6 +30,7 @@ Route::get('/dashboard', function () {
 
 Route::get('/contact', [PagesController::class, 'contact']);
 Route::get('/site', [PagesController::class, 'sites']);
+Route::get('/campagne', [PagesController::class, 'campagne']);
 Route::get('/about', [PagesController::class, 'about']);
 Route::get('/home', [PagesController::class, 'index']);
 Route::resource('reservations', ReservationController::class)

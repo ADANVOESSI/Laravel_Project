@@ -626,6 +626,7 @@ footer{
     padding: 0 0 15px;
 }
 .footer section h4{
+    max-width: 100%;
     font-size: 18px;
     padding: 2px 4px;
     margin: 0 0 10px 0;
