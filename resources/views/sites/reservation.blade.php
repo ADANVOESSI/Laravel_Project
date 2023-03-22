@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <title>Gestion des réservations</title>
-    <link rel="stylesheet" href="../../ressources/css/styles.css">
+    @vite(['resources/css/styles.css', 'resources/js/header.js'])
 </head>
 <body>
     <div class="container">
@@ -47,7 +47,7 @@
                             <?php //}?>
                         </tbody>
                     </table>
-                    <h3 class='title_echo'>Vous pouvez de même faire une autre réservation en cliquant   <a href="/Users/hotels" class="title"> ici</a></h3>
+                    <h3 class='title_echo'>Vous pouvez de même faire une autre réservation en cliquant   <a href="/hotel" class="title"> ici</a></h3>
                 <?php //} else { 
 
                     echo "<h1 class='title_echo'>Vous n'avez fait auncune réservation alors  <a href='/Users/hotels'><span class='title'>cliquez ici </span></a> pour en faire une. Nous vous remercions !</h1>";
@@ -56,7 +56,7 @@
                
             
             
-            <a class="title right-title" href="/Users/accueil"><span class="glyphicon glyphicon-plus"></span>Aller sur le site</a>
+            <a class="title right-title" href="/"><span class="glyphicon glyphicon-plus"></span>Aller sur le site</a>
         </section>
     </div>
 </body>

@@ -18,9 +18,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 
 Route::get('/dashboard', function () {
@@ -28,12 +28,15 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
+Route::get('/reservation', [ReservationController::class, 'index']);
+Route::get('/hotel', [ReservationController::class, 'hotel']);
+// Route::post('/store', [ReservationController::class, 'store']);
 Route::get('/contact', [PagesController::class, 'contact']);
 Route::get('/site', [PagesController::class, 'sites']);
 Route::get('/campagne', [PagesController::class, 'campagne']);
 Route::get('/about', [PagesController::class, 'about']);
-Route::get('/home', [PagesController::class, 'index']);
-Route::resource('reservations', ReservationController::class)
+Route::get('/', [PagesController::class, 'index']);
+Route::resource('sites', ReservationController::class)
     ->only(['index', 'store'])
     ->middleware(['auth', 'verified']);
 

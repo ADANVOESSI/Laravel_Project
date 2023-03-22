@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('tourismes', function (Blueprint $table) {
             $table->id();
+            $table->string('lname');
+            $table->string('fname');
+            $table->string('civilite');
+            $table->string('image')->nullable();
+            $table->foreignId('idGuide')->constrained()->references('id')->on('guides');
             $table->timestamps();
         });
     }
@@ -23,5 +28,11 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('tourismes');
+
+        Schema::table(function(Blueprint $table){
+
+            $table->dropConstrainedForeignId('idGuide');
+
+        });
     }
 };

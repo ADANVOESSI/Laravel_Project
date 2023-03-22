@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -50,8 +51,18 @@ class User extends Authenticatable
         return $this->hasMany(Chirp::class);
     }
 
-    public function reservation(): HasMany
+    public function reservation()
     {
-        return $this->hasMany(Reservation::class);
+        return $this->belongsTo(Reservation::class);
     }
+
+    public function message()
+    {
+        return $this->belongsTo(Message::class);
+    }
+
+    // public function reservation()
+    // {
+    //     return $this->belongsTo(Reservation::class);
+    // }
 }

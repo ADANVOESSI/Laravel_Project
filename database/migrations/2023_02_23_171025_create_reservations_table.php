@@ -14,6 +14,14 @@ return new class extends Migration
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
             $table->string('hotel');
+            $table->date('date_Arr');
+            $table->date('date_Sort');
+            $table->integer('adult');
+            $table->integer('child');
+            $table->string('room');
+            $table->integer('nbr_room');
+            $table->foreignId('userID')->constrained()->references('id')->on('users');
+            $table->timestamps();
         });
     }
 
@@ -23,5 +31,11 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('reservations');
+
+        Schema::table(function(Blueprint $table){
+
+            $table->dropConstrainedForeignId('userID');
+
+        });
     }
 };

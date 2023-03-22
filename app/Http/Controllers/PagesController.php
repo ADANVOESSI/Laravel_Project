@@ -25,9 +25,6 @@ class PagesController extends Controller
 
         $users = DB::select('select * from users');
         
-        foreach ($users as $user) {
-            echo $user->name . " " . $user->email;
-        }
         return view('chirps.campagne', ['user' => $users]);
         // return view('chirps.campagne');
     }

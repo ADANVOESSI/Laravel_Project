@@ -23,13 +23,13 @@
                     <!-- box -->
                     <div class="box">
                         <h4>Parc National de la Pendjari</h4>
-                        <img src="../../ressources/assets/pendjari7.jpg" alt="parc pendjari">
+                        <img src="./../../assets/pendjari7.jpg" alt="parc pendjari">
                         <div class="content">
                             <div>
                                 <h4>Parc National de la Pendjari</h4>
                                 <p>Le Parc National de la Pendjari abrégé PNP est situé au Nord Ouest du Bénin dans la commune de Tanguieta et s'étend sur une superficie de 4800km2.</p>
                                 <p>Le Parc National de la Pendjari est sans doute l'un des plus remarquable sites touristiques de l'Afrique de l'Ouest. Il en compte environ 45 000 mammifères avec plus de 780 éléphants et 450 lions. D'autres animaux y sont également.</p>
-                                <a href="#é">Lire plus</a>
+                                <a href="#">Lire plus</a>
                             </div>
                         </div>
                     </div>

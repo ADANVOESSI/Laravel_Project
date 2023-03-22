@@ -18,7 +18,7 @@
     </div>
 
     <ul id="menu" class="menu">
-        <li><a href="/home">Acceuil</a></li>|
+        <li><a href="/">Acceuil</a></li>|
         <li><a href="/about">à propos</a></li>|
         <li><a href="/site">sites</a></li>|
         <li><a href="/contact">contact</a></li>

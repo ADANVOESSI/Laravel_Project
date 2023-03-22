@@ -17,7 +17,7 @@
             <section>
                 <h4>Pages</h4>
                 <ul class="page_footer">
-                    <li><a href="/home">Acceuil</a></li>
+                    <li><a href="/">Acceuil</a></li>
                     <li><a href="/about">A propos</a></li>
                     <li><a href="/site">Sites</a></li>
                     <li><a href="/contact">Contact</a></li>
@@ -69,8 +69,9 @@
             </div>
         </div>
         <div class="d-flex">
+            {{-- ../assets/amazone.jpg --}}
             <p>Copyright ERITEL <span>Travel</span> © 2022</p>
-            <img src="/ressources/assets/Coat_of_arms_of_Benin.svg.png" alt="Coat_of_arms_of_Benin.svg">
+            <img src="./ressources/assets/Coat_of_arms_of_Benin.svg.png" alt="Coat_of_arms_of_Benin.svg">
             <p>Tous droits résevés.</p>
         </div>
     </footer>

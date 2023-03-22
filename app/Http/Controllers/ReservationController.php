@@ -17,11 +17,22 @@ class ReservationController extends Controller
     public function index(): View
     {
 
-        return view('sites.reservation');
+        return view('sites.reservation', [
+            'reservations' => Reservation::with('user')->latest()->get(),
+        ]);
 
         // $reservations = Reservation::all();
 
         // return view('reservations.reservations');
+    }
+
+    public function hotel(): View
+    {
+
+        return view('sites.hotel', [
+            'reservations' => Reservation::with('users')->latest()->get(),
+        ]);
+
     }
 
     /**
@@ -29,13 +40,7 @@ class ReservationController extends Controller
      */
     public function create()
     {
-        // $this->reservationModel = new ReservationModel();
-        // $userID = $_SESSION["user_id"];
-        // $this->userID = $userID;
-        // $resultatReservation = $this->reservationModel->afficheReservation($this->userID);
-        // $tabCount = $this->reservationModel->countReservationUser($this->userID);
-        // $nbrReservation = $tabCount["countR"]; 
-        // require_once('../App/Views/Users/afficheReservation.php');
+        
     }
 
     /**
@@ -46,11 +51,11 @@ class ReservationController extends Controller
         $validated = $request->validate([
             'hotel' => 'required|string|max:50',
             'date_Arr' => 'required|date',
-            'date_sort' => 'required|date',
-            'adult' => 'required|number',
-            'child' => 'required|number',
+            'date_Sort' => 'required|date',
+            'adult' => 'required|integer',
+            'child' => 'required|integer',
             'room' => 'required|string|max:255',
-            'nbr_room' => 'required|number',
+            'nbr_room' => 'required|integer',
         ]);
  
         $request->user()->reservations()->create($validated);

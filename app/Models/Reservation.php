@@ -13,16 +13,17 @@ class Reservation extends Model
     protected $fillable = [
         'hotel',
         'date_Arr',
-        'date_sort',
+        'date_Sort',
         'adult',
         'child',
         'room',
         'nbr_room',
+        'userID'
     ];
 
     
-    public function user(): BelongsTo
+    public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->hasMany(User::class);
     }
 }
